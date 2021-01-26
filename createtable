@@ -1,0 +1,15 @@
+CREATE TABLE gerencieaqui.client (
+id INT NOT NULL AUTO_INCREMENT,
+cliente_tipo_codigo INT NOT NULL,
+cliente_numero_documento VARCHAR(20) NOT NULL,
+cliente_razao_nome VARCHAR(60) NOT NULL,
+cliente_logradouro VARCHAR(60) NULL,
+cliente_bairro VARCHAR(30) NULL,
+cliente_cidade VARCHAR(30) NULL,
+cliente_departamento VARCHAR(30) NULL,
+cliente_codigo_postal INT NULL,
+cliente_pais INT NULL,
+cliente_logradouro_receptor VARCHAR(30) NULL,
+cliente_local_entrega VARCHAR(100) NULL,
+cliente_informacao_adicional VARCHAR(255) NULL,
+PRIMARY KEY (id));

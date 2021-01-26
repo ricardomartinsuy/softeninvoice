@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+    <div class="row">
+        <form action="#" th:action="@{/Client/save}" th:object="${Client}"
+              method="POST" >
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-group">
+                <label>Tipo de Documento</label>                 
+                 <select class="form-control" th:field="*{ClienteTipoDocumento}">
+                    <option th:value="0" th:text=""></option>
+                    <option th:value="1" th:text="RUT"></option>
+                    <option th:value="2" th:text="C.I."></option>
+                    <option th:value="3" th:text="DNI"></option>
+                    <option th:value="4" th:text="NIE"></option>
+                    <option th:value="5" th:text="NIFE"></option>
+                    <option th:value="6" th:text="Pasaporte"></option>
+                    <option th:value="7" th:text="Otros"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nº del Documento</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteNumeroDocumento}" />
+            </div>
+
+            <div class="form-group">
+                <label>Razón Social/Nombre</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteRazaoNome}" />
+            </div>
+
+            <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteLogradouro}" />
+            </div>
+
+            <div class="form-group">
+                <label>Barrio</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteBairro}" />
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Ciudad</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteCidade}" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Departamento</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteEstado}" />
+            </div>
+
+            <div class="form-group">
+                <label>Código Postal</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteCodigoPostal}" />
+            </div>
+
+            <div class="form-group">
+                <label>País</label>
+
+                <select class="form-control" th:field="*{ClientePais}">
+                <option th:value="1" th:text="Uruguay"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>País de dirección del receptor</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteLogradouroReceptor}" />
+            </div>
+
+            <div class="form-group">
+                <label>Local de destino de la entrega</label>
+                <input type="text" class="form-control"
+                       th:field="*{ClienteLocalEntrega}" />
+            </div>
+
+            <div class="form-group">
+                <label>Información Adicional</label>
+                <textarea   class="form-control"
+                       th:field="*{ClienteInformacaoAdicional}" >
+                </textarea>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div><!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
