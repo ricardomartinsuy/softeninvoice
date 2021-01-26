@@ -45,7 +45,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="contact,iterStat : ${Clients}">
-                    <td th:text="${contact.id}"></td>
+                    <td th:text="${contact.ClienteRazaoNome}"></td>
                     <td th:text="${contact.ClienteNumeroDocumento}"></td>
                     <td th:text="${contact.ClienteCidade}"></td>
                     <td th:text="${contact.ClientePais}"></td>
