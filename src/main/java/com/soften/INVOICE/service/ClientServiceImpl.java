@@ -1,11 +1,12 @@
 package com.soften.INVOICE.service;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.soften.INVOICE.model.Client;
+import com.soften.INVOICE.model.ClientForm;
 import com.soften.INVOICE.repository.ClientRepository;
 
 @Service
@@ -36,5 +37,10 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void delete(int id) {
         ClientRepository.delete(id);
+    }
+
+    @Override
+    public void inactivate(ArrayList<ClientForm> contacts) {
+        //ClientRepository.save(contact);
     }
 }

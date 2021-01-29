@@ -4,6 +4,9 @@
 <body>
 <nav th:replace="layout :: header"></nav>
 
+
+<form action="#" th:action="@{/Client/inactivate}" th:object="${Clients}"
+    method="POST" >
 <div class="container main-content list">
     <div th:if="${success}"
          class="row alert alert-success alert-dismissible">
@@ -25,16 +28,28 @@
             </div>
             <button type="submit" class="btn btn-danger">Buscar</button>
         </form>
+
+  
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Más opciones
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li> <button type="submit" class="btn btn-primary"> Inactivar Receptores</button></li>
+            </ul>
+        </div>
+        
     </div>
     <th:block th:if="${#lists.isEmpty(Clients)}">
         <h3>No hay receptores</h3>
     </th:block>
-
+    
     <th:block th:unless="${#lists.isEmpty(Clients)}">
         <div class="row">
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Razón Social/Nombre</th>
                     <th>Documento</th>
                     <th>Ciudad</th>
@@ -45,6 +60,10 @@
                 </thead>
                 <tbody>
                 <tr th:each="contact,iterStat : ${Clients}">
+                    <td><input 
+                    type="checkbox" 
+                        th:name="${iterStat.index}"
+                        th:checked="${contact.ClienteStatus}"/></td>
                     <td th:text="${contact.ClienteRazaoNome}"></td>
                     <td th:text="${contact.ClienteNumeroDocumento}"></td>
                     <td th:text="${contact.ClienteCidade}"></td>
@@ -58,7 +77,9 @@
             </table>
         </div>
     </th:block>
+    
 </div>
+</form>
 <!-- /.container -->
 
 <footer th:replace="layout :: footer"></footer>

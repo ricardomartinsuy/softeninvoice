@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.soften.INVOICE.model.Client;
+import com.soften.INVOICE.model.ClientForm;
 import com.soften.INVOICE.service.ClientService;
+
+import java.util.ArrayList;
 
 @Controller
 public class ClientController {
@@ -44,14 +47,24 @@ public class ClientController {
             return "form";
         }
         ClientService.save(Client);
-        redirect.addFlashAttribute("success", "Saved Client successfully!");
+        redirect.addFlashAttribute("success", "¡Receptor guardado con éxito!");
         return "redirect:/";
     }
 
     @GetMapping("/Client/{id}/delete")
     public String delete(@PathVariable int id, RedirectAttributes redirect) {
         ClientService.delete(id);
-        redirect.addFlashAttribute("success", "Deleted Client successfully!");
+        redirect.addFlashAttribute("success", "¡Receptor borrado con éxito!");
+        return "redirect:/";
+    }
+
+    @PostMapping("/Client/inactivate")
+    public String inactivate(@Valid ArrayList<ClientForm> clientForm, BindingResult result, RedirectAttributes redirect) {
+        if (result.hasErrors()) {
+            return "form";
+        }
+        ClientService.inactivate(clientForm);
+        redirect.addFlashAttribute("success", "a");
         return "redirect:/";
     }
 

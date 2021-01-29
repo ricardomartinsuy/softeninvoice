@@ -56,8 +56,10 @@ public class Client implements Serializable {
     private String ClienteLocalEntrega;
 
     @Column(name = "ClienteInformacaoAdicional")
-    private String ClienteInformacaoAdicional;
-
+	private String ClienteInformacaoAdicional;
+	
+	@Column(name = "ClienteStatus")
+	private boolean ClienteStatus;
 
     public int getId() {
         return id;
@@ -163,6 +165,14 @@ public class Client implements Serializable {
 		this.ClienteInformacaoAdicional = ClienteInformacaoAdicional;
 	}
 
+	public boolean isClienteStatus() {
+		return this.ClienteStatus;
+	}
+
+	public void setClienteStatus(boolean ClienteStatus) {
+		this.ClienteStatus = ClienteStatus;
+	}
+
 
     public Client() {
         super();
@@ -182,7 +192,8 @@ public class Client implements Serializable {
         this.ClientePais = pais;
         this.ClienteLogradouroReceptor = logreceptor;
         this.ClienteLocalEntrega = locentrega;
-        this.ClienteInformacaoAdicional = infadc;
+		this.ClienteInformacaoAdicional = infadc;
+		this.ClienteStatus = false;
     }
 
    
